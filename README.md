@@ -1,66 +1,285 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistem Informasi Pengelolaan Surat Masuk dan Surat Keluar
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi berbasis web untuk membantu pengelolaan arsip surat masuk, surat keluar, disposisi, jenis surat, pengguna, dan laporan surat di **SMK Negeri 1 Tanjung Palas**.
 
-## About Laravel
+> Proyek ini dikembangkan sebagai proyek tugas akhir. README ini disusun berdasarkan struktur kode yang disertakan dalam repositori dan deskripsi penelitian. Aplikasi belum diaudit sebagai sistem produksi.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Daftar Isi
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Latar Belakang](#latar-belakang)
+- [Fitur Utama](#fitur-utama)
+- [Hak Akses](#hak-akses)
+- [Teknologi](#teknologi)
+- [Struktur Proyek](#struktur-proyek)
+- [Persyaratan](#persyaratan)
+- [Instalasi dan Menjalankan Aplikasi](#instalasi-dan-menjalankan-aplikasi)
+- [Basis Data](#basis-data)
+- [Pengujian](#pengujian)
+- [Catatan Keamanan Sebelum Dipublikasikan](#catatan-keamanan-sebelum-dipublikasikan)
+- [Pengembangan Selanjutnya](#pengembangan-selanjutnya)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Latar Belakang
 
-## Learning Laravel
+Pengelolaan surat secara manual dapat membuat pencatatan, pengarsipan, pencarian surat, penyampaian disposisi, dan pembuatan laporan menjadi kurang efisien. Aplikasi ini dibuat untuk memusatkan proses pengelolaan surat dalam satu sistem berbasis web sehingga data lebih mudah dicari dan dokumentasi surat lebih terorganisasi.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Fitur Utama
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Berdasarkan route, controller, model, dan halaman yang tersedia dalam kode:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Autentikasi pengguna** — halaman login dan mekanisme autentikasi Laravel.
+- **Dashboard** — halaman ringkasan aplikasi setelah pengguna masuk.
+- **Pengelolaan surat masuk** — melihat daftar, menambah, melihat detail/membuka berkas, mengubah, dan menghapus data surat masuk.
+- **Pengelolaan surat keluar** — melihat daftar, menambah surat keluar, termasuk formulir surat keluar eksternal, melihat detail/membuka berkas, mengubah, dan menghapus data.
+- **Konfirmasi surat keluar** — alur persetujuan atau penolakan surat keluar tersedia melalui route konfirmasi.
+- **Disposisi surat** — melihat, menambah, melihat detail, mengubah, dan menghapus disposisi surat masuk.
+- **Jenis surat** — pengelolaan data jenis surat.
+- **Pengguna** — pengelolaan akun pengguna oleh level yang diizinkan.
+- **Laporan berdasarkan periode tanggal** — laporan surat masuk, surat keluar, dan disposisi, termasuk halaman cetak laporan.
+- **Berkas surat** — aplikasi memiliki alur untuk membuka berkas surat yang diunggah.
 
-## Laravel Sponsors
+Ketersediaan menu atau tindakan tertentu dapat bergantung pada level akun yang sedang digunakan.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Hak Akses
 
-### Premium Partners
+Kolom `level` pada tabel `users` mendefinisikan nilai berikut:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+| Nilai level di basis data | Peran |
+|---|---|
+| `tatausaha` | Tata Usaha / administrasi surat; kode membatasi pengelolaan jenis surat dan pengguna ke level ini. |
+| `kepsek` | Kepala sekolah. |
+| `kurikulum` | Bidang kurikulum. |
+| `kesiswaan` | Bidang kesiswaan. |
+| `humas` | Bidang hubungan masyarakat. |
+| `sarpras` | Bidang sarana dan prasarana. |
+| `guru` | Guru. |
 
-## Contributing
+Pembatasan hak akses pada route menggunakan middleware `auth` dan middleware `level`. Untuk penjelasan hak akses yang benar-benar berlaku di setiap halaman, periksa kembali tampilan dan controller terkait sebelum mengubah konfigurasi peran.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Teknologi
 
-## Code of Conduct
+| Teknologi | Kegunaan |
+|---|---|
+| PHP `^8.1` | Bahasa pemrograman sisi server; sesuai persyaratan di `composer.json`. |
+| Laravel `^10.10` | Framework aplikasi web. |
+| MySQL | Basis data yang dapat dikonfigurasi melalui `.env`; koneksi default di konfigurasi Laravel adalah MySQL. |
+| Blade | Template tampilan Laravel (`resources/views`). |
+| Bootstrap `^5.2.3` | Komponen dan styling antarmuka dari dependensi frontend. |
+| AdminLTE | Aset template dashboard yang disertakan di direktori `public/Adminlte`. |
+| DataTables | Dukungan tabel interaktif; dependensi `datatables.net-dt` tercantum di `package.json`. |
+| Vite, npm | Pengelolaan dan build aset frontend. |
+| DomPDF | Dependensi untuk pembuatan dokumen PDF. |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Struktur Proyek
 
-## Security Vulnerabilities
+```text
+surat-masuk-keluar-app/
+├── app/
+│   ├── Http/Controllers/       # Logika surat, disposisi, laporan, pengguna
+│   ├── Http/Middleware/        # Middleware autentikasi dan level pengguna
+│   └── Models/                 # Model Eloquent
+├── database/
+│   ├── migrations/             # Skema tabel
+│   └── seeders/                # Seeder basis data
+├── public/
+│   ├── Adminlte/               # Aset template dashboard
+│   ├── image/                  # Aset gambar/logo
+│   └── uploadfile/             # Direktori berkas yang ada pada paket proyek
+├── resources/views/            # Template Blade
+├── routes/web.php              # Route aplikasi web
+├── composer.json               # Dependensi PHP
+├── package.json                # Dependensi frontend
+└── vite.config.js              # Konfigurasi Vite
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Persyaratan
 
-## License
+Pastikan perangkat pengembangan sudah memiliki:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- PHP **8.1 atau lebih baru yang kompatibel dengan Laravel 10**, beserta ekstensi PHP yang dibutuhkan Laravel dan driver PDO MySQL.
+- Composer.
+- MySQL atau MariaDB yang kompatibel.
+- Node.js dan npm.
+- Git (opsional, untuk mengambil repositori).
+
+## Instalasi dan Menjalankan Aplikasi
+
+### 1. Ambil kode proyek
+
+Clone repositori GitHub atau ekstrak arsip proyek ke folder kerja, kemudian masuk ke direktori proyek yang berisi `artisan` dan `composer.json`.
+
+```bash
+cd surat-masuk-keluar-app
+```
+
+### 2. Pasang dependensi
+
+```bash
+composer install
+npm install
+```
+
+Jika direktori `vendor/` atau `node_modules/` tidak disertakan dalam repositori, perintah di atas akan memasang dependensi dari file manifest.
+
+### 3. Siapkan konfigurasi lingkungan
+
+Buat file `.env` dari contoh konfigurasi:
+
+```bash
+cp .env.example .env
+```
+
+Di Windows Command Prompt, jika `cp` tidak tersedia:
+
+```bat
+copy .env.example .env
+```
+
+Buat application key:
+
+```bash
+php artisan key:generate
+```
+
+### 4. Siapkan basis data
+
+Buat basis data kosong melalui MySQL, lalu sesuaikan variabel berikut pada `.env` dengan konfigurasi lokal Anda:
+
+```dotenv
+APP_NAME="Sistem Informasi Surat"
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://127.0.0.1:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nama_database_anda
+DB_USERNAME=nama_user_database
+DB_PASSWORD=password_database_anda
+```
+
+Jangan salin kredensial dari komputer lain. Gunakan nama basis data, pengguna, dan kata sandi milik lingkungan lokal Anda.
+
+**Catatan migrasi:** dari nama berkas migration yang disertakan, migration `incomingmails` dan `outgoingmails` tercatat memiliki urutan waktu sebelum migration `types`, padahal kedua tabel surat memiliki foreign key ke `types`. Pada instalasi basis data baru, urutan ini berpotensi membuat `php artisan migrate` gagal. Sebelum menjalankan migrasi pertama kali, atur ulang timestamp/nama berkas migration `create_types_table` agar dijalankan sebelum migration `create_incomingmails_table` dan `create_outgoingmails_table`. Jangan mengubah urutan migration pada basis data yang sudah digunakan tanpa membuat cadangan dan memeriksa status migration terlebih dahulu.
+
+Setelah urutan migration dipastikan benar, jalankan:
+
+```bash
+php artisan migrate
+```
+
+Seeder bawaan `DatabaseSeeder` saat ini tidak membuat akun pengguna contoh. Siapkan akun pengguna melalui mekanisme yang tersedia pada aplikasi atau buat akun awal secara aman di lingkungan lokal. Pastikan kolom `level` diisi dengan salah satu nilai yang didukung, misalnya `tatausaha`, `kepsek`, `kurikulum`, `kesiswaan`, `humas`, `sarpras`, atau `guru`.
+
+### 5. Build aset frontend
+
+Untuk pengembangan:
+
+```bash
+npm run dev
+```
+
+Untuk build aset:
+
+```bash
+npm run build
+```
+
+### 6. Jalankan server lokal
+
+```bash
+php artisan serve
+```
+
+Buka alamat yang ditampilkan oleh Laravel, biasanya `http://127.0.0.1:8000`, pada browser.
+
+> Langkah instalasi di atas adalah panduan untuk lingkungan pengembangan. Keberhasilan instalasi baru belum diverifikasi dalam lingkungan bersih. Periksa konfigurasi PHP, ekstensi, urutan migration, izin folder, dan konfigurasi database bila muncul error.
+
+## Basis Data
+
+Migration proyek mendefinisikan tabel inti berikut:
+
+- `users` — akun, nama, username, password, dan level akses.
+- `types` — jenis surat.
+- `incomingmails` — informasi surat masuk, tanggal, asal, perihal, berkas, isi, pengirim, dan status baca.
+- `outgoingmails` — informasi surat keluar, tujuan, tanggal, berkas, isi, pengirim, dan status terkait proses surat.
+- `dispositions` — relasi surat masuk, penerima disposisi, isi disposisi, dan status baca.
+
+Laravel juga menyediakan migration pendukung autentikasi dan sistem seperti password reset, failed jobs, dan personal access tokens.
+
+## Pengujian
+
+Dokumen penelitian proyek menjelaskan penggunaan pengujian **Black Box**, **White Box**, dan **System Usability Scale (SUS)**. Hasil pengujian yang dilaporkan dalam penelitian:
+
+- White Box: Cyclomatic Complexity = 23, Region = 23, dan Independent Path = 23.
+- SUS: skor 85 dari 5 responden; penelitian mengategorikannya sebagai *Acceptable*, Grade B, dan *Excellent*.
+
+Angka di atas merupakan hasil yang dilaporkan dalam dokumen penelitian, bukan hasil pengujian ulang yang dijalankan saat penyusunan README ini.
+
+Untuk menjalankan test otomatis Laravel yang tersedia, gunakan:
+
+```bash
+php artisan test
+```
+
+Hasil aktual bergantung pada konfigurasi dan test yang ada di proyek.
+
+## Catatan Keamanan Sebelum Dipublikasikan
+
+Sebelum mendorong proyek ke repositori publik GitHub:
+
+1. **Jangan publikasikan `.env`.** Arsip yang diperiksa berisi file `.env` selain `.env.example`. Hapus `.env` dari paket yang akan dipublikasikan dan pastikan file itu tidak pernah masuk ke riwayat Git. Jika kredensial nyata pernah dibagikan atau di-commit, ganti/rotasi kredensial tersebut.
+2. **Periksa `public/uploadfile/`.** Direktori tersebut berisi dokumen PDF yang tampaknya merupakan berkas surat/dokumen nyata, termasuk dokumen yang berpotensi memuat data pribadi atau informasi institusi. Hapus atau ganti dengan data dummy yang sudah disanitasi sebelum repositori dibuat publik. Jangan menganggap file aman hanya karena berada di direktori `public`.
+3. **Jangan menyertakan dependensi hasil instalasi.** Umumnya `vendor/` dan `node_modules/` tidak perlu dimasukkan ke Git; keduanya dapat dipasang ulang dari `composer.lock` dan `package-lock.json`.
+4. **Gunakan data contoh untuk demo.** Jangan unggah username, password, berkas surat, atau data pengguna sungguhan.
+5. **Tinjau konfigurasi produksi.** Matikan debug, gunakan HTTPS, batasi akses berkas, validasi unggahan, dan tinjau kebijakan otorisasi sebelum aplikasi dipasang pada server publik.
+
+File `.gitignore` proyek sudah memuat `.env`, `vendor`, dan `node_modules`, tetapi aturan `.gitignore` tidak menghapus file yang sudah telanjur dilacak Git dan tidak melindungi dokumen pribadi yang sengaja diletakkan dalam direktori publik.
+
+## Pengembangan Selanjutnya
+
+Beberapa hal yang dapat ditinjau sebelum aplikasi digunakan secara luas:
+
+- Menambahkan seeder akun demo yang aman atau dokumentasi pembuatan akun awal.
+- Memastikan urutan migration bisa dijalankan pada database kosong.
+- Meninjau perlindungan CSRF, metode HTTP untuk operasi hapus/konfirmasi, validasi unggahan, dan otorisasi per tindakan.
+- Memindahkan dokumen surat ke penyimpanan privat dan menyediakan akses melalui route yang terotorisasi jika dokumen tidak boleh diakses publik.
+- Menambahkan screenshot antarmuka yang tidak memuat data pribadi agar README GitHub lebih informatif.
+
+## Lisensi
+
+Lisensi khusus proyek ini belum dapat dipastikan dari kode yang diperiksa. Tentukan dan tambahkan file `LICENSE` jika proyek akan dipublikasikan. Jangan otomatis menganggap seluruh kode aplikasi memiliki lisensi yang sama dengan framework atau aset pihak ketiga yang digunakan.
+
+## Tampilan Aplikasi
+
+### Login
+![Halaman Login](docs/login.png)
+
+Berikut adalah dokumentasi visual aplikasi yang diambil dari bagian implementasi pada laporan penelitian.
+
+### Dashboard
+![Dashboard aplikasi](docs/dashboard.png)
+
+### Pengelolaan Surat Masuk
+![Halaman Surat Masuk](docs/surat-masuk.png)
+
+### Pengelolaan Surat Keluar
+![Halaman Surat Keluar](docs/surat-keluar.png)
+
+### Disposisi
+![Halaman Disposisi](docs/disposisi.png)
+
+### Pengelolaan Tipe Surat
+![Halaman Tipe Surat](docs/tipe-surat.png)
+
+### Manajemen Pengguna
+![Halaman Manajemen Pengguna](docs/manajemen-user.png)
+
+### Laporan Surat Masuk
+![Laporan Surat Masuk](docs/laporan-surat-masuk.png)
+
+### Laporan Surat Keluar
+![Laporan Surat Keluar](docs/laporan-surat-keluar.png)
+
+### Laporan Disposisi
+![Laporan Disposisi](docs/laporan-disposisi.png)
+
