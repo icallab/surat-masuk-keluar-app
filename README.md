@@ -2,7 +2,7 @@
 
 Aplikasi berbasis web untuk membantu pengelolaan arsip surat masuk, surat keluar, disposisi, jenis surat, pengguna, dan laporan surat di **SMK Negeri 1 Tanjung Palas**.
 
-## Daftar Isi
+## 📑 Daftar Isi
 
 - [Latar Belakang](#latar-belakang)
 - [Fitur Utama](#fitur-utama)
@@ -16,11 +16,11 @@ Aplikasi berbasis web untuk membantu pengelolaan arsip surat masuk, surat keluar
 - [Catatan Keamanan Sebelum Dipublikasikan](#catatan-keamanan-sebelum-dipublikasikan)
 - [Pengembangan Selanjutnya](#pengembangan-selanjutnya)
 
-## Latar Belakang
+## 🎯 Latar Belakang
 
 Pengelolaan surat secara manual dapat membuat pencatatan, pengarsipan, pencarian surat, penyampaian disposisi, dan pembuatan laporan menjadi kurang efisien. Aplikasi ini dibuat untuk memusatkan proses pengelolaan surat dalam satu sistem berbasis web sehingga data lebih mudah dicari dan dokumentasi surat lebih terorganisasi.
 
-## Fitur Utama
+## ✨ Fitur Utama
 
 Berdasarkan route, controller, model, dan halaman yang tersedia dalam kode:
 
@@ -37,7 +37,7 @@ Berdasarkan route, controller, model, dan halaman yang tersedia dalam kode:
 
 Ketersediaan menu atau tindakan tertentu dapat bergantung pada level akun yang sedang digunakan.
 
-## Hak Akses
+## 🔐 Hak Akses
 
 Kolom `level` pada tabel `users` mendefinisikan nilai berikut:
 
@@ -53,7 +53,7 @@ Kolom `level` pada tabel `users` mendefinisikan nilai berikut:
 
 Pembatasan hak akses pada route menggunakan middleware `auth` dan middleware `level`. Untuk penjelasan hak akses yang benar-benar berlaku di setiap halaman, periksa kembali tampilan dan controller terkait sebelum mengubah konfigurasi peran.
 
-## Teknologi
+## 🛠️ Teknologi
 
 | Teknologi | Kegunaan |
 |---|---|
@@ -67,7 +67,7 @@ Pembatasan hak akses pada route menggunakan middleware `auth` dan middleware `le
 | Vite, npm | Pengelolaan dan build aset frontend. |
 | DomPDF | Dependensi untuk pembuatan dokumen PDF. |
 
-## Struktur Proyek
+## 📂 Struktur Proyek
 
 ```text
 surat-masuk-keluar-app/
