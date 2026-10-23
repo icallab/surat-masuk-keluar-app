@@ -2,8 +2,6 @@
 
 Aplikasi berbasis web untuk membantu pengelolaan arsip surat masuk, surat keluar, disposisi, jenis surat, pengguna, dan laporan surat di **SMK Negeri 1 Tanjung Palas**.
 
-> Proyek ini dikembangkan sebagai proyek tugas akhir. README ini disusun berdasarkan struktur kode yang disertakan dalam repositori dan deskripsi penelitian. Aplikasi belum diaudit sebagai sistem produksi.
-
 ## Daftar Isi
 
 - [Latar Belakang](#latar-belakang)
