@@ -223,63 +223,44 @@ php artisan test
 
 Hasil aktual bergantung pada konfigurasi dan test yang ada di proyek.
 
-## Catatan Keamanan Sebelum Dipublikasikan
-
-Sebelum mendorong proyek ke repositori publik GitHub:
-
-1. **Jangan publikasikan `.env`.** Arsip yang diperiksa berisi file `.env` selain `.env.example`. Hapus `.env` dari paket yang akan dipublikasikan dan pastikan file itu tidak pernah masuk ke riwayat Git. Jika kredensial nyata pernah dibagikan atau di-commit, ganti/rotasi kredensial tersebut.
-2. **Periksa `public/uploadfile/`.** Direktori tersebut berisi dokumen PDF yang tampaknya merupakan berkas surat/dokumen nyata, termasuk dokumen yang berpotensi memuat data pribadi atau informasi institusi. Hapus atau ganti dengan data dummy yang sudah disanitasi sebelum repositori dibuat publik. Jangan menganggap file aman hanya karena berada di direktori `public`.
-3. **Jangan menyertakan dependensi hasil instalasi.** Umumnya `vendor/` dan `node_modules/` tidak perlu dimasukkan ke Git; keduanya dapat dipasang ulang dari `composer.lock` dan `package-lock.json`.
-4. **Gunakan data contoh untuk demo.** Jangan unggah username, password, berkas surat, atau data pengguna sungguhan.
-5. **Tinjau konfigurasi produksi.** Matikan debug, gunakan HTTPS, batasi akses berkas, validasi unggahan, dan tinjau kebijakan otorisasi sebelum aplikasi dipasang pada server publik.
-
-File `.gitignore` proyek sudah memuat `.env`, `vendor`, dan `node_modules`, tetapi aturan `.gitignore` tidak menghapus file yang sudah telanjur dilacak Git dan tidak melindungi dokumen pribadi yang sengaja diletakkan dalam direktori publik.
-
-## Pengembangan Selanjutnya
-
-Beberapa hal yang dapat ditinjau sebelum aplikasi digunakan secara luas:
-
-- Menambahkan seeder akun demo yang aman atau dokumentasi pembuatan akun awal.
-- Memastikan urutan migration bisa dijalankan pada database kosong.
-- Meninjau perlindungan CSRF, metode HTTP untuk operasi hapus/konfirmasi, validasi unggahan, dan otorisasi per tindakan.
-- Memindahkan dokumen surat ke penyimpanan privat dan menyediakan akses melalui route yang terotorisasi jika dokumen tidak boleh diakses publik.
-- Menambahkan screenshot antarmuka yang tidak memuat data pribadi agar README GitHub lebih informatif.
-
-## Lisensi
-
-Lisensi khusus proyek ini belum dapat dipastikan dari kode yang diperiksa. Tentukan dan tambahkan file `LICENSE` jika proyek akan dipublikasikan. Jangan otomatis menganggap seluruh kode aplikasi memiliki lisensi yang sama dengan framework atau aset pihak ketiga yang digunakan.
 
 ## Tampilan Aplikasi
 
 ### Login
 ![Halaman Login](docs/login.png)
 
-Berikut adalah dokumentasi visual aplikasi yang diambil dari bagian implementasi pada laporan penelitian.
-
 ### Dashboard
 ![Dashboard aplikasi](docs/dashboard.png)
 
 ### Pengelolaan Surat Masuk
-![Halaman Surat Masuk](docs/surat-masuk.png)
+![Halaman Surat Masuk](docs/suratmasuk.png)
 
 ### Pengelolaan Surat Keluar
-![Halaman Surat Keluar](docs/surat-keluar.png)
+![Halaman Surat Keluar](docs/suratkeluar.png)
 
 ### Disposisi
 ![Halaman Disposisi](docs/disposisi.png)
 
+### Tambah surat
+![Halaman Disposisi](docs/tambahsurat.png)
+
+### Detail Surat
+![Halaman Disposisi](docs/detailsurat.png)
+
+### Edit Surat
+![Halaman Disposisi](docs/editsurat.png)
+
 ### Pengelolaan Tipe Surat
-![Halaman Tipe Surat](docs/tipe-surat.png)
+![Halaman Tipe Surat](docs/tipesurat.png)
 
 ### Manajemen Pengguna
-![Halaman Manajemen Pengguna](docs/manajemen-user.png)
+![Halaman Manajemen Pengguna](docs/manajemenuser.png)
 
-### Laporan Surat Masuk
-![Laporan Surat Masuk](docs/laporan-surat-masuk.png)
+### Laporan Surat
+![Laporan Surat Masuk](docs/laporansurat.png)
 
-### Laporan Surat Keluar
-![Laporan Surat Keluar](docs/laporan-surat-keluar.png)
+### Hasil Laporan Surat 
+![Laporan Surat Keluar](docs/hasillaporan.png)
 
-### Laporan Disposisi
-![Laporan Disposisi](docs/laporan-disposisi.png)
+
 
