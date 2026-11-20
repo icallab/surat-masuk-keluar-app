@@ -4,7 +4,7 @@ Aplikasi berbasis web untuk membantu pengelolaan arsip surat masuk, surat keluar
 
 ## 📑 Daftar Isi
 
-- [Latar Belakang](#latar-belakang)
+- [Latar Belakang](#-latar-belakang)
 - [Fitur Utama](#fitur-utama)
 - [Hak Akses](#hak-akses)
 - [Teknologi](#teknologi)
