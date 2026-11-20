@@ -9,11 +9,11 @@ Aplikasi berbasis web untuk membantu pengelolaan arsip surat masuk, surat keluar
 - [Hak Akses](#-hak-akses)
 - [Teknologi](#-teknologi)
 - [Struktur Proyek](#-struktur-proyek)
-- [Persyaratan](#-persyaratan)
+- [Persyaratan](#persyaratan)
 - [Instalasi dan Menjalankan Aplikasi](#instalasi-dan-menjalankan-aplikasi)
-- [Basis Data](#-basis-data)
-- [Pengujian](#-pengujian)
-- [Tampilan Aplikasi](#-Tampilan-Aplikasi)
+- [Basis Data](#basis-data)
+- [Pengujian](#pengujian)
+- [Tampilan Aplikasi](#tampilan-aplikasi)
 
 
 ## 🎯 Latar Belakang
