@@ -7,7 +7,7 @@ Aplikasi berbasis web untuk membantu pengelolaan arsip surat masuk, surat keluar
 - [Latar Belakang](#-latar-belakang)
 - [Fitur Utama](#-fitur-utama)
 - [Hak Akses](#-hak-akses)
-- [Teknologi](#-teknologi)
+- [Teknologi](#teknologi)
 - [Struktur Proyek](#-struktur-proyek)
 - [Persyaratan](#persyaratan)
 - [Instalasi dan Menjalankan Aplikasi](#instalasi-dan-menjalankan-aplikasi)
@@ -53,6 +53,7 @@ Kolom `level` pada tabel `users` mendefinisikan nilai berikut:
 
 Pembatasan hak akses pada route menggunakan middleware `auth` dan middleware `level`. Untuk penjelasan hak akses yang benar-benar berlaku di setiap halaman, periksa kembali tampilan dan controller terkait sebelum mengubah konfigurasi peran.
 
+<a id="teknologi"></a>
 ## 🛠️ Teknologi
 
 | Teknologi | Kegunaan |
