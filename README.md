@@ -5,16 +5,16 @@ Aplikasi berbasis web untuk membantu pengelolaan arsip surat masuk, surat keluar
 ## 📑 Daftar Isi
 
 - [Latar Belakang](#-latar-belakang)
-- [Fitur Utama](#fitur-utama)
-- [Hak Akses](#hak-akses)
-- [Teknologi](#teknologi)
-- [Struktur Proyek](#struktur-proyek)
-- [Persyaratan](#persyaratan)
+- [Fitur Utama](#-fitur-utama)
+- [Hak Akses](#-hak-akses)
+- [Teknologi](#-teknologi)
+- [Struktur Proyek](#-struktur-proyek)
+- [Persyaratan](#-persyaratan)
 - [Instalasi dan Menjalankan Aplikasi](#instalasi-dan-menjalankan-aplikasi)
-- [Basis Data](#basis-data)
-- [Pengujian](#pengujian)
-- [Catatan Keamanan Sebelum Dipublikasikan](#catatan-keamanan-sebelum-dipublikasikan)
-- [Pengembangan Selanjutnya](#pengembangan-selanjutnya)
+- [Basis Data](#-basis-data)
+- [Pengujian](#-pengujian)
+- [Tampilan Aplikasi](#-Tampilan-Aplikasi)
+
 
 ## 🎯 Latar Belakang
 
